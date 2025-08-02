@@ -47,11 +47,11 @@ A modern, SEO-optimized e-commerce frontend built with Next.js, Redux Toolkit, a
 ## Project Structure
 ```bash
 /app
-  /components       # Reusable UI components
+  /components      # Reusable UI components
   /lib             # API and validation logic
   /slices          # Redux store slices
   /store           # Redux store configuration
-  /type           # TypeScript type definitions
+  /type            # TypeScript type definitions
   /product/[id]    # Dynamic product pages
   /checkout        # Checkout page
   /orders          # Order history
