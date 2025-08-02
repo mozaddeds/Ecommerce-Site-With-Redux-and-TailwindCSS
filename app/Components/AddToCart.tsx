@@ -16,7 +16,6 @@ const AddToCartButton = ({ product }: AddToCartButtonProps) => {
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log('Adding to cart:', product);
     dispatch(addItem(product));
     setIsClicked(true);
     setTimeout(() => setIsClicked(false), 500);

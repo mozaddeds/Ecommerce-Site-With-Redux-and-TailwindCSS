@@ -9,7 +9,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-// Define validation schema
+
 const checkoutSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
@@ -70,7 +70,7 @@ const CheckoutPage = () => {
         <h1 className="text-3xl font-bold text-gray-900 mb-8">Checkout</h1>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Left Column - Order Summary */}
+          
           <div className="bg-white rounded-xl shadow-md p-6">
             <h2 className="text-xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-200">
               Order Summary
@@ -104,7 +104,7 @@ const CheckoutPage = () => {
             </div>
           </div>
 
-          {/* Right Column - Shipping Form */}
+          
           <div className="bg-[#080808] rounded-xl shadow-md p-6">
             <h2 className="text-xl font-semibold text-gray-100 mb-6 pb-2 border-b border-blue-200">
               Shipping Information

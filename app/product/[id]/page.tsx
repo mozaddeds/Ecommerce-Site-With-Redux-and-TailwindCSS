@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const ProductPage = async ({ params }: Props) => {
-    const { id } = await Promise.resolve(params); // This satisfies Next.js's requirement
+    const { id } = await Promise.resolve(params);
     const products: Product[] = await productData();
     const product = products.find((p) => p.id.toString() === id);
 
@@ -48,7 +48,6 @@ const ProductPage = async ({ params }: Props) => {
         <div className="min-h-screen flex items-center justify-center p-4">
             <div className="w-full max-w-6xl bg-white rounded-xl shadow-lg overflow-hidden">
                 <div className="grid md:grid-cols-2 gap-8 p-6">
-                    {/* Product Image */}
                     <div className="flex items-center justify-center bg-gray-50 rounded-lg p-4">
                         <Image
                             src={product.image}
@@ -60,7 +59,7 @@ const ProductPage = async ({ params }: Props) => {
                         />
                     </div>
 
-                    {/* Product Info */}
+                    
                     <div className="flex flex-col justify-between">
                         <div>
                             <h1 className="text-3xl font-bold text-gray-900 mb-3">{product.title}</h1>
@@ -84,7 +83,6 @@ const ProductPage = async ({ params }: Props) => {
                             </div>
                         </div>
 
-                        {/* Category Badge */}
                         <div className="mb-6">
                             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
                                 {product.category}
@@ -93,7 +91,6 @@ const ProductPage = async ({ params }: Props) => {
                     </div>
                 </div>
 
-                {/* Action Buttons */}
                 <div className="border-t border-gray-200 p-6 bg-gray-50">
                     <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                         <div className="w-full sm:w-auto">
