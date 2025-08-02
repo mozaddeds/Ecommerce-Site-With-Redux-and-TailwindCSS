@@ -1,14 +1,12 @@
-# ShopEase - E-commerce Product Showcase
+# E-commerce Website with Redux and TailwindCSS
 
 A modern, SEO-optimized e-commerce frontend built with Next.js, Redux Toolkit, and Tailwind CSS.
-
-![ShopEase Screenshot](/screenshot.png) <!-- Add your screenshot if available -->
 
 ## Features
 
 - **Product Catalog**: Browse products from FakeStoreAPI
 - **Product Details**: Complete product information with ratings
-- **Shopping Cart**: Add/remove items with Redux state management
+- **Shopping Cart**: Add items with Redux state management
 - **Checkout Flow**: Form validation with Zod
 - **Order History**: View past orders
 - **SEO Optimized**: Dynamic meta tags, sitemap, and robots.txt
