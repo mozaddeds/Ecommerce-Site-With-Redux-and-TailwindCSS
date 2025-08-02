@@ -45,10 +45,10 @@ const ProductPage = async ({ params }: Props) => {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center p-4">
-            <div className="w-full max-w-6xl bg-white rounded-xl shadow-lg overflow-hidden">
-                <div className="grid md:grid-cols-2 gap-8 p-6">
-                    <div className="flex items-center justify-center bg-gray-50 rounded-lg p-4">
+        <main className="min-h-screen flex items-center justify-center p-4">
+            <article className="w-full max-w-6xl bg-white rounded-xl shadow-lg overflow-hidden">
+                <section className="grid md:grid-cols-2 gap-8 p-6">
+                    <figure className="flex items-center justify-center bg-gray-50 rounded-lg p-4">
                         <Image
                             src={product.image}
                             alt={product.title}
@@ -57,14 +57,13 @@ const ProductPage = async ({ params }: Props) => {
                             className="object-contain h-96 w-full"
                             priority
                         />
-                    </div>
+                    </figure>
 
-                    
-                    <div className="flex flex-col justify-between">
-                        <div>
+                    <section className="flex flex-col justify-between">
+                        <header>
                             <h1 className="text-3xl font-bold text-gray-900 mb-3">{product.title}</h1>
 
-                            <div className="flex items-center mb-4">
+                            <div className="flex items-center mb-4" aria-label="Price and rating">
                                 <span className="text-2xl font-semibold text-gray-800">
                                     ${product.price.toFixed(2)}
                                 </span>
@@ -77,26 +76,29 @@ const ProductPage = async ({ params }: Props) => {
                                     </div>
                                 )}
                             </div>
+                        </header>
 
-                            <div className="prose max-w-none text-gray-600 mb-6">
-                                <p>{product.description}</p>
+                        <section className="prose max-w-none text-gray-600 mb-6" aria-label="Product description">
+                            <p>{product.description}</p>
+                        </section>
+
+                        <footer>
+                            <div className="mb-6">
+                                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
+                                    {product.category}
+                                </span>
                             </div>
-                        </div>
+                        </footer>
+                    </section>
+                </section>
 
-                        <div className="mb-6">
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
-                                {product.category}
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="border-t border-gray-200 p-6 bg-gray-50">
+                <nav className="border-t border-gray-200 p-6 bg-gray-50" aria-label="Product actions">
                     <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                         <div className="w-full sm:w-auto">
                             <Link
                                 href="/"
                                 className="inline-flex w-60 justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-gray-100 bg-[#020402] hover:bg-[#212121] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                aria-label="Continue shopping"
                             >
                                 ← Continue Shopping
                             </Link>
@@ -110,14 +112,15 @@ const ProductPage = async ({ params }: Props) => {
                             <Link
                                 href="/checkout"
                                 className="inline-flex w-60 justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                                aria-label="Proceed to checkout"
                             >
                                 Proceed to Checkout →
                             </Link>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                </nav>
+            </article>
+        </main>
     );
 };
 

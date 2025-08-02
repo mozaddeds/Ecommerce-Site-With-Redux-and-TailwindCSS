@@ -24,9 +24,9 @@ const AddToCartButton = ({ product }: AddToCartButtonProps) => {
   return (
     <button
       onClick={handleAddToCart}
-      className={`bg-[#d9ee1b] text-[#020402] px-6 py-2 w-60 justify-center items-center rounded hover:bg-[#7a8047d4] transition ${
-        isClicked ? 'scale-95' : ''
-      }`}
+      className={`bg-[#d9ee1b] text-[#020402] px-6 py-2 w-60 justify-center items-center rounded hover:bg-[#7a8047d4] transition ${isClicked ? 'scale-95' : ''
+        }`}
+      aria-label={`Add ${product.title} to cart`}
     >
       {isClicked ? 'Added!' : 'Add to Cart'}
     </button>

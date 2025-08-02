@@ -8,6 +8,7 @@ import { placeOrder } from '../slices/cartSlice';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import QuantityControl from '../Components/QuantityControl';
 
 
 const checkoutSchema = z.object({
@@ -26,7 +27,7 @@ const CheckoutPage = () => {
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [orderId] = useState(Math.floor(Math.random() * 1000000));
 
-  const totalAmount = items.reduce((sum, item) => sum + item.price, 0);
+  const totalAmount = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
   const {
     register,
@@ -70,7 +71,7 @@ const CheckoutPage = () => {
         <h1 className="text-3xl font-bold text-gray-900 mb-8">Checkout</h1>
 
         <div className="grid md:grid-cols-2 gap-8">
-          
+
           <div className="bg-white rounded-xl shadow-md p-6">
             <h2 className="text-xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-200">
               Order Summary
@@ -89,9 +90,11 @@ const CheckoutPage = () => {
                     </div>
                     <div>
                       <h3 className="font-medium text-gray-900">{item.title}</h3>
+                      <p className="text-sm text-gray-500">Qty: {item.quantity}</p>
                     </div>
                   </div>
-                  <p className="font-medium text-gray-900">${item.price.toFixed(2)}</p>
+                  <p className="font-medium text-gray-900">${(item.price * item.quantity).toFixed(2)}</p>
+                  <QuantityControl productId={item.id} quantity={item.quantity} />
                 </div>
               ))}
             </div>
@@ -104,7 +107,7 @@ const CheckoutPage = () => {
             </div>
           </div>
 
-          
+
           <div className="bg-[#080808] rounded-xl shadow-md p-6">
             <h2 className="text-xl font-semibold text-gray-100 mb-6 pb-2 border-b border-blue-200">
               Shipping Information
@@ -163,8 +166,8 @@ const CheckoutPage = () => {
                 type="submit"
                 disabled={items.length === 0}
                 className={`w-full py-3 px-4 rounded-lg font-medium text-white shadow-sm ${items.length === 0
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500'
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500'
                   }`}
               >
                 Place Order
